@@ -36,20 +36,26 @@ Check Week: Verify not more than 4 shifts (40 hrs)
 per week.
 """
 def week1count (e):
+   # Verify the employee will not exceed a 40 hr workweek in week1
    count = 0
    emp1w = grid[e][0:7]
    for x in emp1w:
       if x != 0:
          count += 1
    return count
+
 def week2count (e):
+   # Verify the employee will not exceed a 40 hr workweek in week2
    count = 0
    emp1w = grid[e][7:14]
    for x in emp1w:
       if x != 0:
          count += 1
    return count
+
 def checkweek (e,d):
+   # Run Checks for both weekcount functions
+   # return of FALSE indicates a new shift assignment would cross the employee into overtime.
    if d < 7:
       if week1count(e) < 5:
         return True
