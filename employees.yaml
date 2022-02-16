@@ -1,0 +1,21 @@
+Josh : 
+  name : Josh
+  fte : 5
+  trained_for : MI, 7C, 7P, S
+  pref : S
+  streak_pref : 3
+
+Brittanie : 
+  name : Brittanie
+  fte : 8
+  trained_for : [ MI, 7C, 7P, S ]
+  pref : 7P
+  streak_pref : 
+
+
+# emp : 
+#   name : 
+#   fte : 
+#   trained_for : 
+#   pref : 
+#   streak_pref : 
