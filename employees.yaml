@@ -1,7 +1,7 @@
 Josh : 
   name : Josh
   fte : 5
-  trained_for : MI, 7C, 7P, S
+  trained_for : [ MI, 7C, 7P, S ]
   pref : S
   streak_pref : 3
 
@@ -10,12 +10,32 @@ Brittanie :
   fte : 8
   trained_for : [ MI, 7C, 7P, S ]
   pref : 7P
-  streak_pref : 
+  streak_pref : 8
 
+Trisha : 
+  name : Trisha
+  fte : 8
+  trained_for : [ 7P ]
+  pref : 7P
+  streak_pref : 5
 
-# emp : 
+Brianna : 
+  name : Brianna
+  fte : 8
+  trained_for : [ 7P , S ]
+  pref : 7P
+  streak_pref : 4
+
+Mona : 
+  name : Mona
+  fte : 7
+  trained_for : [ 3 , N ]
+  pref : 3
+  streak_pref : 7
+
+# n : 
 #   name : 
 #   fte : 
-#   trained_for : 
+#   trained_for : [  ]
 #   pref : 
 #   streak_pref : 
