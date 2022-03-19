@@ -19,6 +19,7 @@ Trisha :
   trained_for : [ 7P ]
   pref : 7P
   streak_pref : 5
+  weekend : 1
 
 Brianna : 
   name : Brianna
@@ -26,6 +27,7 @@ Brianna :
   trained_for : [ 7P , S ]
   pref : 7P
   streak_pref : 4
+  weekend : 2
 
 Mona : 
   name : Mona
@@ -41,6 +43,14 @@ Thelassa :
   pref : OP
   streak_pref : 5
   weekend : 0
+
+
+Michael : 
+  name : Michael
+  fte : 7
+  trained_for : [ N ]
+  pref : N
+  streak_pref : 7
 
 # n : 
 #   name : 

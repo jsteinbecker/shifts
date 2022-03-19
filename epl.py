@@ -7,7 +7,10 @@ import pandas as pd
 class empData :
    
    shifts = "MI 7C 7P S OP EI EP 3 N".split(" ")
-   
+   amshifts = shifts[0:5]
+   pmshifts = shifts[6:8]
+   nnshifts = shifts[-1]
+      
    def __init__ (self):
       self.yml = open("employees.yaml").read()
       self.yml = yaml.load(self.yml,Loader=Loader)
@@ -89,6 +92,30 @@ class schedule :
       for emp in e :
          for day in daycols:
             self.df[day].loc[emp] = "___"
+      # Weekend 1
+      e = []
+      for x in self.empdf.index:
+         if self.empdf['weekend'].loc[x] == 1:
+            e.append(x)
+      # Scratch out avaliability of empolyees who work 1 weekends
+      for emp in e :
+         for day in daycols[0::4]:
+            self.df[day].loc[emp] = "___"
+      for emp in e :
+         for day in daycols[4::4]:
+            self.df[day].loc[emp] = "___"
+      # Weekend 2
+      e = []
+      for x in self.empdf.index:
+         if self.empdf['weekend'].loc[x] == 2:
+            e.append(x)
+      # Scratch out avaliability of empolyees who work 1 weekends
+      for emp in e :
+         for day in daycols[1::4]:
+            self.df[day].loc[emp] = "___"
+      for emp in e :
+         for day in daycols[2::4]:
+            self.df[day].loc[emp] = "___"
       return self.df
    
    def exclusiveShifts (self):
@@ -147,3 +174,7 @@ for x in list(execution.keys()):
    print(x)
 for x,y in execution.items():
    print(f'{x}:\n{(len(x)+1 )*"-"}\n{y}\n\n\n')
+
+
+
+
