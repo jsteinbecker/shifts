@@ -4,6 +4,7 @@ Josh :
   trained_for : [ MI, 7C, 7P, S ]
   pref : S
   streak_pref : 3
+  weekend : 2
 
 Brittanie : 
   name : Brittanie
@@ -32,6 +33,14 @@ Mona :
   trained_for : [ 3 , N ]
   pref : 3
   streak_pref : 7
+
+Thelassa : 
+  name : Thelassa
+  fte : 10
+  trained_for : [ OP ]
+  pref : OP
+  streak_pref : 5
+  weekend : 0
 
 # n : 
 #   name : 
