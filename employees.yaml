@@ -9,9 +9,18 @@ Josh :
 Brittanie : 
   name : Brittanie
   fte : 8
-  trained_for : [ MI, 7C, 7P, S ]
+  trained_for : [ 3 ]
   pref : 7P
   streak_pref : 8
+  weekend : 2
+
+Danica :
+  name : Danica
+  fte : 8
+  trained_for : [ MI , 7C , 7P, S , EI , EP ]
+  pref : MI
+  streak_pref : 8
+  weekend : 1
 
 Trisha : 
   name : Trisha
@@ -24,7 +33,7 @@ Trisha :
 Brianna : 
   name : Brianna
   fte : 8
-  trained_for : [ 7P , S ]
+  trained_for : [ 7P ]
   pref : 7P
   streak_pref : 4
   weekend : 2
@@ -32,9 +41,10 @@ Brianna :
 Mona : 
   name : Mona
   fte : 7
-  trained_for : [ 3 , N ]
+  trained_for : [ 3 ]
   pref : 3
   streak_pref : 7
+  weekend : 2
 
 Thelassa : 
   name : Thelassa
@@ -44,13 +54,21 @@ Thelassa :
   streak_pref : 5
   weekend : 0
 
-
 Michael : 
   name : Michael
   fte : 7
   trained_for : [ N ]
   pref : N
   streak_pref : 7
+  weekend : 1
+
+Amanda : 
+  name : Amanda
+  fte : 7
+  trained_for : [ N ]
+  pref : N
+  streak_pref : 7
+  weekend : 2
 
 # n : 
 #   name : 

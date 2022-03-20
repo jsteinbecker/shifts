@@ -102,14 +102,14 @@ class schedule :
          for day in daycols[0::4]:
             self.df[day].loc[emp] = "___"
       for emp in e :
-         for day in daycols[4::4]:
+         for day in daycols[3::4]:
             self.df[day].loc[emp] = "___"
       # Weekend 2
       e = []
       for x in self.empdf.index:
          if self.empdf['weekend'].loc[x] == 2:
             e.append(x)
-      # Scratch out avaliability of empolyees who work 1 weekends
+      # Scratch out avaliability of empolyees who work 2 weekends
       for emp in e :
          for day in daycols[1::4]:
             self.df[day].loc[emp] = "___"
@@ -127,20 +127,24 @@ class schedule :
             es.append(x)
       return es
    
-   def employeeshiftsPerWeek (self,emp,viewmode=0):
+   def employeeScheduleView (self,emp,viewmode=0):
       """"""
       shifts = list(self.df.loc[emp])
-      hoursperweek = [[] for x in range(int(42/7))]
+      weeklist = [[] for x in range(int(42/7))]
       for i in range(len(shifts)):
-         hoursperweek[i//7].append(shifts[i])
+         weeklist[i//7].append(shifts[i])
       if viewmode == 1:
          b = """"""
-         for x in hoursperweek:
+         for x in weeklist:
             b += """
             """
             b += str(x)
-         hoursperweek = b
-      return hoursperweek
+         weeklist = b
+      return weeklist
+   
+   def list_slice(S, step):
+    return [S[i::step] for i in range(step)]
+
 #
 #
 #
@@ -149,15 +153,15 @@ def execute ():
    emps = empData()
    schedule1 = schedule (6,emps)
    emps.countWhoWorksShift()
-   sch_after_addPTO = schedule1.addPTO()
+   schedule1.addPTO()
    josh_week0 = schedule1.getEmployeeWeek(0,"Josh")
    thelassa_week1 = schedule1.getEmployeeWeek(1,"Thelassa")
    schedule1.df.loc['Thelassa']
    schedule1.setWeekendsOff()
    exc = schedule1.exclusiveShifts()
    sch_emps = schedule1.emps
-   joshsShifts = schedule1.employeeshiftsPerWeek("Josh",1)
-   ts = schedule1.employeeshiftsPerWeek("Thelassa",viewmode=1)
+   joshsShifts = schedule1.employeeScheduleView("Josh",1)
+   ts = schedule1.employeeScheduleView("Thelassa",viewmode=1)
    
    return {"EMPS OBJECT": emps, 
            "EMPS IN SCHEDULE OBJECT": schedule1.empdf,
