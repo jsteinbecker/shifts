@@ -1,7 +1,7 @@
       
-import yaml
-from yaml import Loader, Dumper
 import pandas as pd
+import yaml
+from yaml import Dumper, Loader
 
 
 class empData :
@@ -48,7 +48,7 @@ class schedule :
    def __init__(self,start,empData) :
       self.startdate = start
       self.length = 42 # days
-      blank = ["Day_" + str(x) for x in range((42))]
+      blank = ["d" + str(x) for x in range((42))]
       self.df = pd.DataFrame(index=empData.df.name, columns=blank)
       self.empdf = empData.df
       self.emps = list(self.empdf['name'])
@@ -71,31 +71,27 @@ class schedule :
          for r in y:
             request.append((x,r.strip()))
       return request
-   
    def addPTO (self) :
       """Access PTO Requests and Apply To Schedule
       ============================================"""
       for emp,day in self.__ptoInput__():
-         d = "Day_" + day
+         d = "d" + day
          self.df[d].loc[emp] = "PTO"
       return self.df
-   
    def setWeekendsOff (self):
       """Modify DF to give employees appropriate weekends off
       ======================================================="""
       #DATA
       all_sundays = list(range(0,42,7))
       all_saturdays = list(range(6,42,7))
-      wkend0_daysoff = all_sundays + all_saturdays
-      wkend0_daysoff.sort()
-      wkend1_daysoff = all_sundays[0::2] + all_saturdays[1::2]
-      wkend1_daysoff.sort()
-      wkend2_daysoff = all_sundays[1::2] + all_saturdays[0::2]
-      wkend2_daysoff.sort()
+      #LIST OF WEEKEND DAYS OFF 
+      wkend0_daysoff = all_sundays + all_saturdays                ; wkend0_daysoff.sort()
+      wkend1_daysoff = all_sundays[0::2] + all_saturdays[1::2]    ; wkend1_daysoff.sort()
+      wkend2_daysoff = all_sundays[1::2] + all_saturdays[0::2]    ;wkend2_daysoff.sort()
       
-      we0off = ["Day_"+ str(x) for x in wkend0_daysoff]
-      we1off = ["Day_"+ str(x) for x in wkend1_daysoff]
-      we2off = ["Day_"+ str(x) for x in wkend2_daysoff]
+      we0off = ["d"+ str(x) for x in wkend0_daysoff]
+      we1off = ["d"+ str(x) for x in wkend1_daysoff]
+      we2off = ["d"+ str(x) for x in wkend2_daysoff]
       
       def groupEmpsToWeekend (wkend_number):
          group = []
@@ -115,7 +111,6 @@ class schedule :
       scratchOutWeekends(group0,we0off)
       scratchOutWeekends(group1,we1off)
       scratchOutWeekends(group2,we2off)
-
    def exclusiveShifts (self):
       """Get list of employees who work 1 shift
       ========================================="""
@@ -124,7 +119,6 @@ class schedule :
          if len(self.empdf['trained_for'].loc[x]) == 1:
             es.append(x)
       return es
-   
    def weeklyHoursDF (self):
       """"""
       dic = {}
@@ -152,8 +146,6 @@ class schedule :
       day0 = 0 + weekn * 7
       day6 = weekn * 7 + 7
       return list(self.df.loc[emp].iloc[day0:day6])
-   
-
    def employeeScheduleView (self,emp,viewmode=0):
       """"""
       shifts = list(self.df.loc[emp])
@@ -168,7 +160,6 @@ class schedule :
             b += str(x)
          weeklist = b
       return weeklist
-   
    def list_slice(S, step):
     return [S[i::step] for i in range(step)]
 
